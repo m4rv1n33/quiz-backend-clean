@@ -1,4 +1,7 @@
 # buh??
+
+![cuh-guh](src/main/resources/static/cuh-guh.gif)
+
 ## buh??
 ### buh??
 #### buh??

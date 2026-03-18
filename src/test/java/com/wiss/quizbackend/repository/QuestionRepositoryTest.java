@@ -80,10 +80,10 @@ public class QuestionRepositoryTest {
 
         // Assert - Ergebnisse prüfen
         assertThat(sportQuestions).hasSize(1);
-        assertThat(sportQuestions.getFirst().getQuestion()).contains("WM 2014");
+        assertThat(sportQuestions.get(0).getQuestion()).contains("WM 2014");
 
         assertThat(geoQuestions).hasSize(1);
-        assertThat(geoQuestions.getFirst().getQuestion()).contains("Fluss");
+        assertThat(geoQuestions.get(0).getQuestion()).contains("Fluss");
     }
 
     /**
@@ -116,10 +116,10 @@ public class QuestionRepositoryTest {
 
         // Assert
         assertThat(easyQuestions).hasSize(1);
-        assertThat(easyQuestions.getFirst().getCorrectAnswer()).isEqualTo("8");
+        assertThat(easyQuestions.get(0).getCorrectAnswer()).isEqualTo("8");
 
         assertThat(hardQuestions).hasSize(1);
-        assertThat(hardQuestions.getFirst().getCorrectAnswer()).isEqualTo("12");
+        assertThat(hardQuestions.get(0).getCorrectAnswer()).isEqualTo("12");
     }
 
     /**

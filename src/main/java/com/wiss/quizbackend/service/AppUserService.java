@@ -87,6 +87,10 @@ public class AppUserService {
         return userRepository.findByUsername(username);
     }
 
+    public Optional<AppUser> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     /**
      * Authentifiziert User (Vorbereitung für Login)
      *

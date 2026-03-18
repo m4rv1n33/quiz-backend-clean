@@ -10,12 +10,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry){
-        registry.addMapping("/api/questions/**") // <- Alle /api/questions/* Endpoints
-                .allowedOrigins("http://localhost:5173") // <- Vite dev Server
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        // CORS protection disabled - allow all origins and methods
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("*")
                 .allowedHeaders("*")
-                .allowCredentials(false)
-                .maxAge(3600); // browser cached CORS-Info für 1h (3'600s)
+                .allowCredentials(false);
     }
 
     @Override

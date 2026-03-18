@@ -115,13 +115,15 @@ public class QuestionMapper {
                 .filter(answer -> !answer.equals(dto.getCorrectAnswer()))
                 .toList();
 
-        return new Question(
-                dto.getQuestion(),
-                dto.getCorrectAnswer(),
-                incorrectAnswers,
-                dto.getCategory(),
-                dto.getDifficulty()
-        );
+        // Question Entity mit Settern initialisieren, da AppUser erforderlich ist
+        Question question = new Question();
+        question.setQuestion(dto.getQuestion());
+        question.setCorrectAnswer(dto.getCorrectAnswer());
+        question.setIncorrectAnswers(incorrectAnswers);
+        question.setCategory(dto.getCategory());
+        question.setDifficulty(dto.getDifficulty());
+
+        return question;
     }
 
     /**

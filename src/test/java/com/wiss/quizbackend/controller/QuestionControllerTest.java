@@ -199,7 +199,7 @@ public class QuestionControllerTest {
     /**
      * Helper-Methode zum Erstellen von Test-Fragen
      */
-    private Question createTestQuestion(String questionText, String correctAnswer) {
+  /*  private Question createTestQuestion(String questionText, String correctAnswer) {
         return new Question(
                 questionText,
                 correctAnswer,
@@ -208,7 +208,7 @@ public class QuestionControllerTest {
                 "medium"
         );
     }
-
+*/
     private QuestionDTO createTestQuestionDTO(String questionText, String correctAnswer) {
         return new QuestionDTO(
                 null,  // ID für neue DTOs

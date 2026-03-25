@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext.jsx";
 
 const Navigation = () => {
-  // AuthContext nutzen
-  const { isAuthenticated, user } = useContext(AuthContext);
-
   return (
     <nav className="layout-header-nav">
       <Link to="/">Home</Link>
@@ -13,23 +8,7 @@ const Navigation = () => {
       <Link to="/admin">Fragen verwalten</Link>
       <Link to="/regeln">Regeln</Link>
       <Link to="/blabli">Impressum</Link>
-      <Link to="/login">Login</Link>
-
-      {/* Authentifizierungsstatus anzeigen */}
-      {isAuthenticated && (
-        <span
-          style={{
-            marginLeft: "20px",
-            padding: "5px 10px",
-            background: user.role === "ADMIN" ? "#dc3545" : "#007bff",
-            color: "white",
-            borderRadius: "4px",
-            fontSize: "14px",
-          }}
-        >
-          👤 {user.username} ({user.role})
-        </span>
-      )}
+      <Link to="/login">Login</Link>  {/* ← NEU */}
     </nav>
   );
 };

@@ -37,6 +37,25 @@ public class Question {
     public Question(){}
 
     /**
+     * Test-Konstruktor ohne ID und createdBy für Unit-Tests
+     * @param question die Frage
+     * @param correctAnswer die richtige Antwort
+     * @param incorrectAnswers Liste der falschen Antworten
+     * @param category Kategorie
+     * @param difficulty Schwierigkeitsgrad
+     */
+    public Question(String question, String correctAnswer,
+                    List<String> incorrectAnswers, String category,
+                    String difficulty) {
+        this.question = question;
+        this.correctAnswer = correctAnswer;
+        this.incorrectAnswers = incorrectAnswers;
+        this.category = category;
+        this.difficulty = difficulty;
+        this.createdBy = null;
+    }
+
+    /**
      * Konstruktor ohne ID für neue Fragen
      * @param question die Frage
      * @param correctAnswer die richtige Antwort

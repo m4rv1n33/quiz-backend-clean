@@ -15,11 +15,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/quiz" element={<Game />} />
-        <Route path="/admin" element={<QuestionManager />} />
-        <Route path="/regeln" element={<Rules />} />
-        <Route path="/blabli" element={<Impressum />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="quiz" element={<Game />} />
+        <Route path="admin" element={<QuestionManager />} />
+        <Route path="login" element={<Login />} />  {/* NEU */}
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

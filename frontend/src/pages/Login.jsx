@@ -1,16 +1,61 @@
-// import { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
+import { login } from "../services/auth-service"; // ← NEU!
 
 const Login = () => {
-  const handleLogin = (loginData) => {
-    console.log("Login Daten:", loginData);
-    // TODO: Später mit AuthContext und API verbinden (Nachmittag!)
-    alert(`Login-Versuch mit: ${loginData.usernameOrEmail}`);
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  /**
+   * Handler für Login (wird von LoginForm aufgerufen)
+   * @param {Object} loginData - { usernameOrEmail, password }
+   */
+  const handleLogin = async (loginData) => {
+    setError(""); // Reset error
+
+    try {
+      console.log("🔄 Login wird gestartet...");
+
+      // API Call zum Backend
+      const response = await login(
+        loginData.usernameOrEmail,
+        loginData.password
+      );
+
+      console.log("✅ Login erfolgreich:", response);
+
+      // Erfolg! Redirect zu Quiz
+      navigate("/quiz");
+    } catch (err) {
+      console.error("❌ Login fehlgeschlagen:", err);
+      setError(
+        err.message || "Login fehlgeschlagen. Bitte prüfe deine Eingaben."
+      );
+    }
   };
 
   return (
     <div className="auth-page">
       <div className="auth-container">
+        {/* Error Message (wenn vorhanden) */}
+        {error && (
+          <div
+            className="error-message"
+            style={{
+              color: "red",
+              padding: "10px",
+              backgroundColor: "#ffe6e6",
+              borderRadius: "4px",
+              marginBottom: "15px",
+              textAlign: "center",
+            }}
+          >
+            {error}
+          </div>
+        )}
+
+        {/* Bestehende LoginForm Component */}
         <LoginForm onLogin={handleLogin} />
 
         <div className="auth-links">
